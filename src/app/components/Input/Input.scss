@@ -4,8 +4,9 @@
      background: rgb(233, 229, 229);
 
      input {
+          min-height: 35px;
+          padding: 0 15px;
           background: transparent;
-          padding: 6px 0 8px 15px;
 
           &::placeholder {
                font-size: 12px;

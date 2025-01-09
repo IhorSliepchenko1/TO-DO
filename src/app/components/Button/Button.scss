@@ -3,12 +3,12 @@
      font-family: var(--ff-lato);
      font-weight: 500;
      color: var(--white);
-     padding: 11px 25px;
+     padding: 0 25px;
+     min-height: 35px;
      font-size: 10px;
-     border-radius: 50px;
+     border-top-right-radius: 50px;
+     border-bottom-right-radius: 50px;
      transition: var(--transition);
-     position: relative;
-     right: 12px;
 
      &:hover {
           background: var(--orange-hover);

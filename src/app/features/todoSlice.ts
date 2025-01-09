@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { T } from '../../context/contextProviderTypes'
 
 type Data = {
-     id: string,
-     name: string,
-     completed: boolean,
+     id: string
+     title: string
+     completed: boolean
 }
 
 type TodoState = {
@@ -12,56 +13,60 @@ type TodoState = {
      error: string
 }
 
+const savedNewStore = (data: Data[]) => {
+     localStorage.setItem(`todo`, JSON.stringify(data))
+}
+
 const initialState: TodoState = {
      data: localStorage.getItem(`todo`) ? (JSON.parse(localStorage.getItem("todo") as string) as Data[]) : [],
      error: ''
 }
 
-const savedNewStore = (data: Data[]) => {
-     localStorage.setItem(`todo`, JSON.stringify(data))
-}
-
-
 export const todoSlice = createSlice({
      name: 'todo',
      initialState,
      reducers: {
-          addTask: (state, action: PayloadAction<Data>) => {
-               const exists = state.data.some((item) => item.id === action.payload.id);
+          addTask: (state, action: PayloadAction<{ task: Data; translations: T }>) => {
+               const { task, translations } = action.payload
+               state.error = ``
+               const exists = state.data.some((item) => item.id === task.id)
+
                if (exists) {
-                    state.error = `Такой id уже существует`;
+                    state.error = translations.errorAdd
                } else {
-                    state.data.push(action.payload);
-                    savedNewStore(state.data);
+                    state.data.push(task)
+                    savedNewStore(state.data)
                }
           },
-
-          deleteTask: (state, action: PayloadAction<Data>) => {
-               const prevData = [...state.data];
+          deleteTask: (state, action: PayloadAction<{ id: string; translations: T }>) => {
+               const { id, translations } = action.payload
                state.error = ``
-               const newArray: Data[] = prevData.filter((item) => item.id !== action.payload.id)
+               const prevData = [...state.data]
+               const newArray: Data[] = prevData.filter((item) => item.id !== id)
 
                if (newArray.length === prevData.length) {
-                    state.error = `Задача не удалена, что то пошло не так`
+                    state.error = translations.errorDelete
                } else {
-                    state.data = newArray;
-                    savedNewStore(state.data);
+                    state.data = newArray
+                    savedNewStore(state.data)
                }
           },
-          updateTask: (state, action: PayloadAction<Data>) => {
+          updateTask: (state, action: PayloadAction<{ task: Data; translations: T }>) => {
+               const { task, translations } = action.payload
+               state.error = ``
                const updatedData = state.data.map((item) =>
-                    item.id === action.payload.id ? action.payload : item
-               );
+                    item.id === task.id ? task : item
+               )
 
-               const isUpdated = updatedData.some((item) => item.id === action.payload.id);
+               const isUpdated = updatedData.some((item) => item.id === task.id)
+
                if (!isUpdated) {
-                    state.error = `Редактирование не удалось, что-то пошло не так`;
+                    state.error = translations.errorUpdate
                } else {
-                    state.data = updatedData;
-                    savedNewStore(state.data);
+                    state.data = updatedData
+                    savedNewStore(state.data)
                }
           },
-
      },
 })
 

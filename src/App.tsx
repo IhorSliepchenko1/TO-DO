@@ -5,10 +5,11 @@ import Header from "./app/components/Header/Header"
 import { useStoreContext } from "./context/ContextProvider"
 import ThemeToggle from "./app/components/ThemeToggle/ThemeToggle"
 import LanguageToggle from "./app/components/LanguageToggle/LanguageToggle"
-import { useAppDispatch, useAppSelector } from "./app/hooks"
-import { addTask, deleteTask, updateTask } from "./app/features/todoSlice"
+import { useAppSelector } from "./app/hooks"
+import Task from "./app/components/Task/Task"
 
 const App = () => {
+  const { data } = useAppSelector(state => state.todo)
   const { error, language } = useStoreContext()
 
   useEffect(() => {
@@ -17,9 +18,6 @@ const App = () => {
     }
   }, [error, language])
 
-  const state = useAppSelector((state) => state)
-  const dispatch = useAppDispatch()
-  console.log(state);
 
   return (
     <main>
@@ -27,27 +25,14 @@ const App = () => {
         <ThemeToggle />
         <LanguageToggle />
       </nav>
-      <button onClick={() => dispatch(addTask({
-        id: String(1111111111),
-        name: `СТАРЫЕ ДАННЫЕ`,
-        completed: false,
-      }))}>dispatch</button>
-
-      <button onClick={() => dispatch(deleteTask({
-        id: `string`,
-        name: `string`,
-        completed: false,
-      }))}>deleteTask</button>
-
-      <button onClick={() => dispatch(updateTask({
-        id: String(1111111111),
-        name: `ОРЕДАКТИРОВАНИ`,
-        completed: false,
-      }))}>ОРЕДАКТИРОВАНИ</button>
-
       <Container>
         <Header />
         <AddSection />
+        {
+          data.map((item) => (
+            <Task title={item.title} key={item.id} />
+          ))
+        }
       </Container>
     </main>
   )

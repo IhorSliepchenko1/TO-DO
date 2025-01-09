@@ -1,5 +1,9 @@
 {
      "title": "To-Do List",
      "btnText": "Add",
-     "placeholder": "Add your text"
+     "placeholder": "Add your task",
+     "errorAdd": "Such a task already exists",
+     "errorDelete": "The task is not deleted, something went wrong",
+     "errorUpdate": "Editing failed, something went wrong",
+     "required": "Required field"
 }

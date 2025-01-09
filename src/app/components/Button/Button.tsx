@@ -6,7 +6,7 @@ type Props = {
 
 const Button: React.FC<Props> = ({ btnText }) => {
      return (
-          <button className="button">{btnText}</button>
+          <button className="button" type='submit'>{btnText}</button>
      )
 }
 
