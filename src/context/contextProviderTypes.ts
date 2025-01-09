@@ -1,4 +1,5 @@
 export enum LanguageList { RU = `RU`, EN = `EN` }
+export enum ThemeList { dark = `dark`, light = `light` }
 
 export type T = { [key: string]: string; }
 
@@ -7,6 +8,8 @@ export type StoreContextType = {
      languageToggle: () => void
      translations: T;
      error: boolean
+     theme: ThemeList
+     toggleTheme: () => void
 }
 
 export type LoadTranlation = {

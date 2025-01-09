@@ -10,6 +10,14 @@
 
 [text](https://fontstorage.com/)
 
+# toggle theme
+
+[text](https://uiverse.io/alexruix/splendid-liger-23)
+
+# border-radius generator
+
+[text](https://border-radius.com/)
+
 # useContext
 1. Инициализация состояния контекста 
 const StoreContext = createContext<ТИП>(НАЧАЛЬНЫЕ СОСТОЯНИЯ)

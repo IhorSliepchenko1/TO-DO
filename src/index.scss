@@ -5,3 +5,16 @@
 * {
   font-family: var(--ff-lato);
 }
+
+body {
+  background: var(--bg-gradient);
+  background: var(--gradient);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 10px;
+  gap: 10px;
+}

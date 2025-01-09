@@ -1,10 +1,18 @@
 :root {
      --ff-lato: 'Lato';
-     // default color
+     --transition: .2s ease-in-out;
      --white: white;
      --red: red;
-
-     --bg-gradient: rgb(69, 63, 161);
-     --gradient: linear-gradient(90deg, rgba(69, 63, 161, 1) 0%, rgba(14, 8, 133, 1) 0%, rgba(79, 4, 103, 1) 100%);
+     --yellow: #fff000;
+     --orange: rgb(255, 115, 0);
+     --orange-hover: rgb(255, 81, 0);
+     --purple: #522ba7;
+     --bg-gradient: rgb(89, 79, 247);
+     --gradient: linear-gradient(90deg, rgba(89, 79, 247, 1) 0%, rgba(19, 21, 198, 1) 0%, rgba(134, 0, 177, 1) 100%);
      --shadow: rgba(255, 255, 255, 0.56)
+}
+
+[data-theme="dark"] {
+     --bg-gradient: rgb(69, 63, 161);
+     --gradient: linear-gradient(90deg, rgba(69, 63, 161, 1) 0%, rgba(1, 2, 98, 1) 0%, rgba(74, 0, 98, 1) 100%);
 }

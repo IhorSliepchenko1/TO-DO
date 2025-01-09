@@ -1,12 +1,14 @@
 import { useContext, createContext, useState, useEffect } from 'react';
-import { LanguageList, LoadTranlation, StoreContextType, T } from './contextProviderTypes';
+import { LanguageList, LoadTranlation, StoreContextType, T, ThemeList } from './contextProviderTypes';
 import { Children } from '../types';
 
 const StoreContext = createContext<StoreContextType>({
      language: LanguageList.RU,
      languageToggle: () => { },
      translations: {},
-     error: false
+     error: false,
+     theme: ThemeList.light,
+     toggleTheme: () => { }
 })
 
 const loadTranslations = async ({ language, setTranslations, setError }: LoadTranlation) => {
@@ -22,14 +24,16 @@ const loadTranslations = async ({ language, setTranslations, setError }: LoadTra
      }
 };
 
-const ContextProvider = ({ children }: Children) => {
+const ContextProvider: React.FC<Children> = ({ children }) => {
      const [language, setLanguage] = useState<LanguageList>(() => {
           return (localStorage.getItem(`language`) as LanguageList.RU | LanguageList.EN) || "RU";
      });
-
      const [translations, setTranslations] = useState<T>({});
-
      const [error, setError] = useState<boolean>(false)
+
+     const [theme, setTheme] = useState<ThemeList>(() => {
+          return (localStorage.getItem(`theme`) as ThemeList.dark | ThemeList.light) || "light";
+     });
 
      const languageToggle = () => {
           const newLanguageValue = language === LanguageList.RU ? LanguageList.EN : LanguageList.RU;
@@ -38,6 +42,15 @@ const ContextProvider = ({ children }: Children) => {
 
      const saveLanguageToLocalStorage = (language: LanguageList) => {
           localStorage.setItem(`language`, language);
+     };
+
+     const toggleTheme = () => {
+          const newTheme = theme === ThemeList.dark ? ThemeList.light : ThemeList.dark;
+          setTheme(newTheme)
+     }
+
+     const saveThemeToLocalStorage = (theme: ThemeList) => {
+          localStorage.setItem(`theme`, theme);
      };
 
 
@@ -49,13 +62,20 @@ const ContextProvider = ({ children }: Children) => {
 
      }, [language]);
 
+     useEffect(() => {
+          saveThemeToLocalStorage(theme)
+          document.documentElement.setAttribute("data-theme", theme);
+     }, [theme])
+
 
      return (
-          <StoreContext.Provider value={{ language, languageToggle, translations, error }}>
+          <StoreContext.Provider value={{
+               language, languageToggle, translations, error, toggleTheme, theme
+          }}>
                {children}
           </StoreContext.Provider>
      )
 }
 
-export default ContextProvider
 export const useStoreContext = () => useContext(StoreContext)
+export default ContextProvider

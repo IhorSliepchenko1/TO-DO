@@ -1,14 +1,12 @@
 .language-toggle {
-     position: absolute;
-     top: 10px;
-     right: 5px;
      outline: 0;
-     // background-color: var(--white);
-     font-size: 12px;
-     padding: 2px 8px;
-     border-radius: 5px;
+     color: var(--white);
+     font-size: 15px;
+     padding: 6px 15px;
+     border-radius: 7px;
      border: 2px solid transparent;
      transition: .15s ease-in-out;
+     background: var(--purple);
      appearance: none;
      cursor: pointer;
 

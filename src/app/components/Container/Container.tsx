@@ -1,7 +1,7 @@
-import { Children } from '../../types'
+import { Children } from '../../../types'
 import './Container.scss'
 
-const Container = ({ children }: Children) => {
+const Container: React.FC<Children> = ({ children }) => {
      return (
           <div className='container'>
                <div className="container__todo">
