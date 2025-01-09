@@ -1,0 +1,7 @@
+@forward './styles/fonts';
+@forward './styles/reset';
+@forward './styles/vars';
+
+* {
+  font-family: var(--ff-lato);
+}
