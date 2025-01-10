@@ -5,5 +5,8 @@
      "errorAdd": "Such a task already exists",
      "errorDelete": "The task is not deleted, something went wrong",
      "errorUpdate": "Editing failed, something went wrong",
-     "required": "Required field"
+     "required": "Required field",
+     "titleModalDelete": "Confirm delete",
+     "deleteBtn": "Delete",
+     "cancelBtn": "Cancel"
 }

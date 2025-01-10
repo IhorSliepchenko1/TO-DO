@@ -2,11 +2,13 @@
      border-top-left-radius: 50px;
      border-bottom-left-radius: 50px;
      background: rgb(233, 229, 229);
+     width: 100%;
 
      input {
           min-height: 35px;
           padding: 0 15px;
           background: transparent;
+          width: 100%;
 
           &::placeholder {
                font-size: 12px;

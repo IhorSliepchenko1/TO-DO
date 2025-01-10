@@ -30,7 +30,13 @@ const App = () => {
         <AddSection />
         {
           data.map((item) => (
-            <Task title={item.title} key={item.id} />
+            <Task
+              key={item.id}
+              title={item.title}
+              id={item.id}
+              checked={item.completed}
+              data={item}
+            />
           ))
         }
       </Container>

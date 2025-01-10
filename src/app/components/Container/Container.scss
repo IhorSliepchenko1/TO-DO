@@ -4,7 +4,8 @@
      align-items: center;
 
      &__todo {
-          max-width: 500px;
+          // max-width: 500px;
+          min-width: 500px;
           padding: 20px;
           border-radius: 10px;
           background-color: var(--white);
