@@ -8,7 +8,7 @@ const Header = () => {
      return (
           <header className="header-container">
                <h1>{translations.title}</h1>
-               <FcTodoList />
+               <FcTodoList className='icon'/>
           </header>
      )
 }

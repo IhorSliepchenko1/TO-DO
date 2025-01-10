@@ -9,9 +9,15 @@ type Props = {
 const Input: React.FC<Props> = ({ placeholder, onChange, value }) => {
 
      return (
-          <div className='input-container'>
-               <input type="text" placeholder={placeholder} onChange={onChange} name="title" maxLength={50} value={value} />
-          </div>
+          <label className='input-container' htmlFor='title'>
+               <input
+                    id='title'
+                    type="text"
+                    placeholder={placeholder}
+                    onChange={onChange}
+                    name="title"
+                    value={value} />
+          </label>
      )
 }
 

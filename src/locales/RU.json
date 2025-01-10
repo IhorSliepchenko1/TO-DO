@@ -10,5 +10,8 @@
      "deleteBtn": "Удалить",
      "cancelBtn": "Отмена",
      "alertError": "произошла ошибка перевода",
-     "emptyArray": "Добавьте задачи"
+     "emptyArray": "Добавьте задачи",
+     "tooltipEdit": "редактировать",
+     "tooltipSave": "сохранить",
+     "tooltipDelete": "удалить"
 }

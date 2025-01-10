@@ -1,6 +1,5 @@
 import { useContext, createContext, useState, useEffect } from 'react';
 import { LanguageList, LoadTranlation, StoreContextType, T, ThemeList } from './contextProviderTypes';
-import { Children } from '../types';
 
 const StoreContext = createContext<StoreContextType>({
      language: LanguageList.RU,
@@ -24,7 +23,7 @@ const loadTranslations = async ({ language, setTranslations, setError }: LoadTra
      }
 };
 
-const ContextProvider: React.FC<Children> = ({ children }) => {
+const ContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
      const [language, setLanguage] = useState<LanguageList>(() => {
           return (localStorage.getItem(`language`) as LanguageList.RU | LanguageList.EN) || "RU";
      });

@@ -10,5 +10,8 @@
      "deleteBtn": "Delete",
      "cancelBtn": "Cancel",
      "alertError": "translation error",
-     "emptyArray": "Add tasks"
+     "emptyArray": "Add tasks",
+     "tooltipEdit": "edit",
+     "tooltipSave": "save",
+     "tooltipDelete":"delete"
 }
