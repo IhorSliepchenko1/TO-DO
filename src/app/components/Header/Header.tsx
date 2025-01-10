@@ -1,5 +1,5 @@
 import './Header.scss'
-import { useStoreContext } from '../../context/ContextProvider'
+import { useStoreContext } from '../../../context/ContextProvider'
 import { FcTodoList } from 'react-icons/fc'
 
 const Header = () => {

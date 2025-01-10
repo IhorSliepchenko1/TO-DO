@@ -1,4 +1,14 @@
 {
      "title": "To-Do List",
-     "task": "task"
+     "btnText": "Add",
+     "placeholder": "Add your task",
+     "errorAdd": "Such a task already exists",
+     "errorDelete": "The task is not deleted, something went wrong",
+     "errorUpdate": "Editing failed, something went wrong",
+     "required": "Required field",
+     "titleModalDelete": "Confirm delete",
+     "deleteBtn": "Delete",
+     "cancelBtn": "Cancel",
+     "alertError": "translation error",
+     "emptyArray": "Add tasks"
 }
