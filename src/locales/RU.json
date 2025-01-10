@@ -8,5 +8,7 @@
      "required": "Обязательное поле",
      "titleModalDelete": "Подтвердите удаление",
      "deleteBtn": "Удалить",
-     "cancelBtn": "Отмена"
+     "cancelBtn": "Отмена",
+     "alertError": "произошла ошибка перевода",
+     "emptyArray": "Добавьте задачи"
 }

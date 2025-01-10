@@ -8,5 +8,7 @@
      "required": "Required field",
      "titleModalDelete": "Confirm delete",
      "deleteBtn": "Delete",
-     "cancelBtn": "Cancel"
+     "cancelBtn": "Cancel",
+     "alertError": "translation error",
+     "emptyArray": "Add tasks"
 }

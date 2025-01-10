@@ -10,11 +10,11 @@ import Task from "./app/components/Task/Task"
 
 const App = () => {
   const { data } = useAppSelector(state => state.todo)
-  const { error, language } = useStoreContext()
+  const { error, language, translations } = useStoreContext()
 
   useEffect(() => {
     if (error) {
-      alert(`произошла ошибка перевода`)
+      alert(translations.alertError)
     }
   }, [error, language])
 
@@ -29,15 +29,18 @@ const App = () => {
         <Header />
         <AddSection />
         {
-          data.map((item) => (
-            <Task
-              key={item.id}
-              title={item.title}
-              id={item.id}
-              checked={item.completed}
-              data={item}
-            />
-          ))
+          data.length < 1 ? <p className="emptyArray">{translations.emptyArray}</p> :
+
+            data.map((item) => (
+              <Task
+                key={item.id}
+                title={item.title}
+                id={item.id}
+                checked={item.completed}
+                data={item}
+              />
+            ))
+
         }
       </Container>
     </main>

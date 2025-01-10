@@ -14,6 +14,12 @@ const ModalContainer: React.FC<Props> = ({ children, setOpen }) => {
           }
      }
 
+     // const handleClickOutside = (event: MouseEvent) => {
+     //      if (ref.current && !ref.current.contains(event.target as Node)) {
+     //           setOpen(false);
+     //      }
+     // };
+
      useEffect(() => {
           document.addEventListener(`mousedown`, closeModal)
 
